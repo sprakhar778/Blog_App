@@ -1,0 +1,40 @@
+
+{% extends "blog/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load static %} 
+{% block content %}
+<div class="card text-center">
+    
+    <div class="card-header">
+        <h3>My Profile </h2>
+    </div>
+    <div class="card-body">
+        {% if filter1 %}
+        
+       <img src="{{user.profile.image.url}}" class="rounded-circle" class="img-fluid" width="130px" height="140px" alt="Cinque Terre">
+      
+         {% else %}
+       
+         <img  src="/media/default.jpg" class="rounded-circle" class="img-fluid" width="150px" height="160px">
+       {% endif %}
+      <h5 class="card-title">{{user.username}}</h5>
+      <p class="card-text">{{user.email}}</p>
+     
+    </div>
+   
+   
+     
+  </div>
+  <div>
+    <form class="form-group" method="POST" enctype="multipart/form-data">
+        {% csrf_token %} 
+        {{ u_form|crispy }}
+        {{ p_form|crispy }}
+        <button class="btn btn-primary" type="submit">Update</button>
+      </form>
+  </div>
+
+
+
+{% endblock content %}
