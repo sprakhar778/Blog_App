@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import psycopg2
+
 import os
 from django.conf import settings
 import dj_database_url
