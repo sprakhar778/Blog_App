@@ -31,7 +31,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
-
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_blog.settings.local")
 # Application definition
 
 INSTALLED_APPS = [
